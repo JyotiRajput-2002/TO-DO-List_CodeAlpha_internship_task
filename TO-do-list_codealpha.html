@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="To-do-list_codealpha.css">
+</head>
+<body>
+    <div class="to-do">
+    <div class="container">
+        <h1><span style="color:crimson">TO-</span><span style="color:blue">DO</span>
+            <span style="color:orangered">List</span></h1>
+        <div class="input">
+            <input type="text" placeholder="Enter your task" id="hell">
+            <button onclick="Add()">Add</button>
+        </div>
+       <div class="content"></div>
+    </div></div>
+
+ 
+
+    <script type="text/javascript">
+        let inputs = document.getElementById("hell");
+        let content = document.querySelector(".content");
+
+        function Add(){
+            if (inputs.value == ""){
+            alert("Please enter your task")
+            }else{ 
+                let newEle = document.createElement("ul");
+                newEle.innerHTML= inputs.value; 
+                content.appendChild(newEle);
+                let span= document.createElement("span");
+                span.innerHTML = "\u00d7";
+                newEle.appendChild(span);
+                newEle.querySelector("span").addEventListener("click" , remove);
+                function remove(){
+                    newEle.remove();
+                }
+            }
+            inputs.value="";
+        }
+    </script>
+</body>
+</html>
